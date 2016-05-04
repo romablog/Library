@@ -9,15 +9,27 @@
   flex-flow: row wrap;
 }
 .my-flex-block {
-  flex-flow: row nowrap;
+  display: flex;
+  text-align: center;
+  position: relative;
+}
+.representaionBook {
+  display: flex;
+  text-align: center;
+  position: relative;
+  align-self: center;
+}
+.book {
+  display: flex;
+  text-align: center;
+  position: relative;
+  justify-content: space-around;
   border: 2px solid #42b4dd;
   width: 300px;
   margin: 20px;
   background: #64D6FF;
   border-radius: 5px;
-  padding: 6.66666667px 6.66666667px 0 6.66666667px;
-  text-align: center;
-  position: relative;
+  padding: 6.66666667px;
 }
 #bookImg {
   width: 150px;
@@ -108,4 +120,19 @@ body {
   transition-duration: 0.4s;
   cursor: pointer;
   font-size: 12px;
+}
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: inherit;
 }

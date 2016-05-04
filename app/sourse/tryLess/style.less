@@ -19,16 +19,26 @@
   flex-flow: row wrap;
 }
 
-.my-flex-block{
-  flex-flow: row nowrap;
+.my-flex-block {
+  display: flex;
+  text-align: center;
+  position:relative;
+}
+
+.representaionBook {
+  .my-flex-block;
+  align-self: center;
+}
+
+.book{
+  .my-flex-block;
+  justify-content: space-around;
   border: 2px solid @light-blue-color - #222222;
   width: @block-width;
   margin: @margin-main;
   background: @light-blue-color;
   border-radius: @margin-main/4;
-  padding: @margin-main/3 @margin-main/3 0 @margin-main/3;
-  text-align: center;
-  position:relative;
+  padding: @margin-main/3;
 }
 
 #bookImg {
@@ -128,4 +138,22 @@ body {
 .infobutton {
   .button;
   font-size: 12px;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: inherit;
 }

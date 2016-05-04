@@ -22,11 +22,11 @@
         <input class="button" type="button" value="Filter" ng-click="sortBooks()">
     </form>
     <div class="my-flex-container">
-        <div class="my-flex-block" ng-repeat="book in books">
-            <div style="float: left">
+        <div class="book" ng-repeat="book in books">
+            <div style="float: left" class="representaionBook">
                 <img src="{{book.path}}" id="bookImg" ng-click="redirectToNewPath(book.id)">
             </div>
-            <div>
+            <div class="representaionBook">
                 "{{book.titleEnglish}}"<br>
                 "{{book.titleRussian}}"<br>
                 {{book.author}}
