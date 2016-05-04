@@ -23,13 +23,14 @@
     </form>
     <div class="my-flex-container">
         <div class="book" ng-repeat="book in books">
-            <div style="float: left" class="representaionBook">
+            <div style="float: left" class="photo">
                 <img src="{{book.path}}" id="bookImg" ng-click="redirectToNewPath(book.id)">
             </div>
             <div class="representaionBook">
-                "{{book.titleEnglish}}"<br>
-                "{{book.titleRussian}}"<br>
-                {{book.author}}
+                <b>"{{book.titleRussian}}"</b><br>
+                {{book.edition}}
+                {{book.author}} <br>
+                {{book.releaseDate}}
             </div>
         </div>
     </div>
