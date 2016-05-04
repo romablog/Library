@@ -13,7 +13,7 @@
   padding: @margin-main/2;
   background: @white-color;
   border-radius: @margin-main/4;
-  border: 2px solid @light-blue-color - #222222;
+  border: 2px solid @dark-color;//@light-blue-color - #222222;
   counter-reset: my-flex-block-counter;
   justify-content: space-around;
   flex-flow: row wrap;
@@ -29,16 +29,17 @@
   .my-flex-block;
   align-self: center;
   flex-grow:12;
+  flex-basis: @block-width/2;
 }
 
 
 .book{
   .my-flex-block;
   justify-content: space-around;
-  border: 2px solid @light-blue-color - #222222;
+  border: 5px solid @dark-color;
   width: @block-width;
   margin: @margin-main;
-  background: @light-blue-color;
+  //background: @light-blue-color;
   border-radius: @margin-main/4;
   padding: @margin-main/3;
 }
