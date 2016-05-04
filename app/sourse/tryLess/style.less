@@ -1,0 +1,131 @@
+@main-color: #2789FF;
+@dark-blue-main-color: #0C617F;
+@blue-main-color: #139BCC;
+@light-main-color: #18C1FF;
+@light-blue-color: #64D6FF;
+@dark-color: #333333;
+@white-color: #fff;
+@margin-main: 20px;
+@block-width: 250px;
+
+.my-flex-container{
+  display: flex;
+  padding: @margin-main/2;
+  background: @white-color;
+  border-radius: @margin-main/4;
+  border: 2px solid @light-blue-color - #222222;
+  counter-reset: my-flex-block-counter;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.my-flex-block{
+  flex-flow: row nowrap;
+  border: 2px solid @light-blue-color - #222222;
+  width: @block-width;
+  margin: @margin-main;
+  background: @light-blue-color;
+  border-radius: @margin-main/4;
+  padding: @margin-main @margin-main/3 0 @margin-main/3;
+  text-align: center;
+  position:relative;
+}
+
+#bookImg {
+  width: @block-width/2;
+  height: @block-width/3*2;
+}
+
+li {
+  display: inline;
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: @margin-main/2 @margin-main/2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  background-color: @dark-blue-main-color - #222222;
+}
+
+
+ul {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: @dark-color;
+}
+
+body {
+  margin: @margin-main;
+}
+
+.my-select{
+  display: inline-block;
+  background: @dark-blue-main-color;
+}
+
+.margin {
+  margin: @margin-main/2;
+}
+
+
+
+.dropdown select::after{
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.dropdown{
+  position: relative;
+  width: 160px;
+  border: 1px solid lightgray;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: medium;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.dropdown:hover{
+  box-shadow: 0 0 5px rgba(0,0,0,.15);
+}
+
+.button {
+  background-color: @blue-main-color;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 4px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor:pointer;
+}
+
+.button:hover {
+  background-color:@blue-main-color + #222222;
+}
+
+.button:active {
+  background-color: @blue-main-color - #222222;
+}
+.absolute {
+  background-color:green;
+  position: absolute;
+  right:    0;
+  bottom:   0;
+}
+
+.infobutton {
+  .button;
+  font-size: 12px;
+}

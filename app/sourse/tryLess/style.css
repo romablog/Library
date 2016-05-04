@@ -1,0 +1,111 @@
+.my-flex-container {
+  display: flex;
+  padding: 10px;
+  background: #fff;
+  border-radius: 5px;
+  border: 2px solid #42b4dd;
+  counter-reset: my-flex-block-counter;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+.my-flex-block {
+  flex-flow: row nowrap;
+  border: 2px solid #42b4dd;
+  width: 250px;
+  margin: 20px;
+  background: #64D6FF;
+  border-radius: 5px;
+  padding: 20px 6.66666667px 0 6.66666667px;
+  text-align: center;
+  position: relative;
+}
+#bookImg {
+  width: 125px;
+  height: 166.66666667px;
+}
+li {
+  display: inline;
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  background-color: #003f5d;
+}
+ul {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #333333;
+}
+body {
+  margin: 20px;
+}
+.my-select {
+  display: inline-block;
+  background: #0C617F;
+}
+.margin {
+  margin: 10px;
+}
+.dropdown select::after {
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+.dropdown {
+  position: relative;
+  width: 160px;
+  border: 1px solid lightgray;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: medium;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.dropdown:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.button {
+  background-color: #139BCC;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 4px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #35bdee;
+}
+.button:active {
+  background-color: #0079aa;
+}
+.absolute {
+  background-color: green;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.infobutton {
+  background-color: #139BCC;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 4px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-size: 12px;
+}
