@@ -1,77 +1,111 @@
-.my-flex-container {
+@main-color: #2789FF;
+@dark-blue-main-color: #0C617F;
+@blue-main-color: #139BCC;
+@light-main-color: #18C1FF;
+@light-blue-color: #64D6FF;
+@dark-color: #333333;
+@white-color: #fff;
+@margin-main: 20px;
+@block-width: 300px;
+
+.my-flex-container{
   display: flex;
-  background: #fff;
+  background: @white-color;
   counter-reset: my-flex-block-counter;
   justify-content: flex-start;
   flex-flow: row wrap;
 }
+
 .my-flex-block {
   display: flex;
   text-align: center;
-  position: relative;
+  position:relative;
 }
+
 .representaionBook {
   text-align: left;
-  flex-grow: 12;
-  flex-basis: 150px;
+  flex-grow:12;
+  flex-basis: @block-width/2;
 }
+
 .photo {
-  text-align: left;
-  flex-grow: 12;
-  flex-basis: 150px;
+  .representaionBook;
   margin-right: 5px;
 }
-.book {
-  display: flex;
-  text-align: center;
-  position: relative;
+
+
+.book{
+  .my-flex-block;
+  flex-basis: 350px;
+  flex-grow: 1;
+  flex-shrink: 1;
   justify-content: space-around;
-  flex-basis: 300px;
-  border: 2px solid #333333;
-  min-width: 300px;
-  margin: 20px;
-  padding: 6.66666667px;
+  border: 2px solid @dark-color;
+  //width: @block-width;
+  min-width: @block-width;
+  margin: @margin-main;
+  padding: @margin-main/3;
 }
+
 #bookImg {
-  width: 150px;
-  height: 200px;
+  width: @block-width/2;
+  height: @block-width/3*2;
+}
+#langImg {
+  width: @block-width/8;
+  height: @block-width/10;
 }
 li {
   display: inline;
   float: left;
 }
+
 li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 10px 10px;
+  padding: @margin-main/2 @margin-main/2;
   text-decoration: none;
   font-weight: bold;
 }
+
 a:hover {
-  background-color: #003f5d;
+  background-color: @blue-main-color - #222222;
 }
+
+
 ul {
+  margin: 0;
   list-style-type: none;
   overflow: hidden;
-  background-color: #333333;
+  background-color: @dark-color;
 }
+
 body {
+  margin: 0;
   font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
-.my-select {
+
+.my-select{
   display: inline-block;
-  background: #0C617F;
+  background: @dark-blue-main-color;
 }
+
 .margin {
-  margin: 10px;
+  margin: @margin-main/2;
 }
-.dropdown select::after {
+
+.margin-top {
+  margin-top: @margin-main/2;
+}
+
+.dropdown select::after{
   -webkit-transition: all 150ms ease-in-out;
   -moz-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
-.dropdown {
+
+.dropdown{
   position: relative;
   width: 160px;
   border: 1px solid lightgray;
@@ -82,52 +116,50 @@ body {
   -moz-user-select: none;
   user-select: none;
 }
-.dropdown:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+
+.dropdown:hover{
+  box-shadow: 0 0 5px rgba(0,0,0,.15);
 }
+
 .button {
-  background-color: #fff;
+  background-color: @white-color;
   color: white;
   padding: 8px 20px;
   text-align: center;
   font-size: 16px;
   border-radius: 4px;
-  border: 2px solid #333333;
-  -webkit-text-fill-color: #333333;
+  border: 2px solid @dark-color;
+  -webkit-text-fill-color: @dark-color;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
-  cursor: pointer;
+  cursor:pointer;
 }
+
 .button:hover {
-  background-color: #35bdee;
+  background-color:@blue-main-color + #222222;
 }
+
 .button:active {
-  background-color: #0079aa;
+  background-color: @blue-main-color - #222222;
 }
+
 .infobutton {
-  background-color: #fff;
-  color: white;
-  padding: 8px 20px;
-  text-align: center;
-  font-size: 16px;
-  border-radius: 4px;
-  border: 2px solid #333333;
-  -webkit-text-fill-color: #333333;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  cursor: pointer;
+  .button;
   font-size: 12px;
 }
+
 .outer {
   display: table;
   position: absolute;
   height: 100%;
   width: 100%;
 }
+
 .middle {
   display: table-cell;
   vertical-align: middle;
 }
+
 .inner {
   margin-left: auto;
   margin-right: auto;

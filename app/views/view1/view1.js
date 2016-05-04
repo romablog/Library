@@ -19,4 +19,10 @@ angular.module('myApp.view1', ['ngRoute'])
   $scope.sortBooks = function () {
     console.log("sortBooks");
   };
+
+  $scope.pictureOfLanguage = function (lang) {
+    if (lang == 'english')
+        return 'source/united_kingdom_640.png';
+    else return 'source/russia_640.png'
+  }
 }]);

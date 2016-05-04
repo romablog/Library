@@ -8,8 +8,10 @@ app.service('BookService', ['$http',function ($http) {
         author: "Steve McConnell",
         releaseDate: "7/07/2004",
         publishingHouse: "Microsoft Press",
-        path: "sourse/Совершенный код.jpg",
-        edition: "второе издание"
+        path: "source/Совершенный код.jpg",
+        edition: "второе издание",
+        language: "russian",
+        status: 1
     },{
         id: 1,
         titleRussian: "Программист-прагматик: от подмастерья к мастеру",
@@ -17,8 +19,10 @@ app.service('BookService', ['$http',function ($http) {
         author: "Andrew Hunt, David Thomas",
         releaseDate: "30/10/1999",
         publishingHouse: "Addison-Wesley Professional",
-        path: "sourse/программист прогматик.jpg",
-        edition: "второе издание"
+        path: "source/программист прогматик.jpg",
+        edition: "второе издание",
+        language: "russian",
+        status: 1
     },{
         id: 2,
         titleRussian: "Структура и интерпретация компьютерных программ",
@@ -26,8 +30,10 @@ app.service('BookService', ['$http',function ($http) {
         author: "Harold Abelson, Gerald J Sussman, Julie Sussman",
         releaseDate: "1/08/1996",
         publishingHouse: "McGraw-Hill Science/Engineering/Math",
-        path: "sourse/структура программ.jpg",
-        edition: "второе издание"
+        path: "source/структура программ.jpg",
+        edition: "второе издание",
+        language: "russian",
+        status: 0
     },{
         id: 3,
         titleRussian: "Язык программирования Си",
@@ -35,8 +41,10 @@ app.service('BookService', ['$http',function ($http) {
         author: "Brian W Kernighan и Dennis M Ritchie",
         releaseDate: "1/04/1988",
         publishingHouse: "Prentice Hall",
-        path: "sourse/CProgramming.jpg",
-        edition: "второе издание"
+        path: "source/CProgramming.jpg",
+        edition: "второе издание",
+        language: "russian",
+        status: 1
     },{
         id: 4,
         titleRussian: "Введение в алгоритмы",
@@ -44,8 +52,10 @@ app.service('BookService', ['$http',function ($http) {
         author: "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest и Clifford Stein",
         releaseDate: "31/072009",
         publishingHouse: "MIT Press",
-        path: "sourse/Introduction.jpg",
-        edition: "первое издание"
+        path: "source/Introduction.jpg",
+        edition: "первое издание",
+        language: "english",
+        status: 0
     },{
         id: 5,
         titleRussian: "Рефакторинг: улучшение существующего кода",
@@ -53,8 +63,10 @@ app.service('BookService', ['$http',function ($http) {
         author: "Martin Fowler, Kent Beck, John Brant и William Opdyke",
         releaseDate: "8/07/1999",
         publishingHouse: "Addison-Wesley Professional",
-        path: "sourse/Refactoring.jpg",
-        edition: "первое издание"
+        path: "source/Refactoring.jpg",
+        edition: "первое издание",
+        language: "english",
+        status: 0
     }];
     this.getBook = function (id) {
         var resultBook = null;

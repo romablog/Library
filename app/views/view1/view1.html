@@ -1,5 +1,5 @@
-<div  ng-controller="View1Ctrl">
-    <form>
+<div  ng-controller="View1Ctrl" class="margin-top">
+    <form ng-show="false">
         <label for="levelOfTraining" class=""></label>
         <select id="levelOfTraining" class="dropdown margin" ng-model="levelOfTraining">
             <option value="" disabled>Level of trainng..</option>
@@ -22,15 +22,15 @@
         <input class="button" type="button" value="Filter" ng-click="sortBooks()">
     </form>
     <div class="my-flex-container">
-        <div class="book" ng-repeat="book in books">
+        <div class="book" ng-repeat="book in books" ng-class="{1:'enabled', 0:'disabled'}[book.status]">
             <div style="float: left" class="photo">
                 <img src="{{book.path}}" id="bookImg" ng-click="redirectToNewPath(book.id)">
             </div>
             <div class="representaionBook">
                 <b>"{{book.titleRussian}}"</b><br>
-                {{book.edition}}
-                {{book.author}} <br>
-                {{book.releaseDate}}
+                {{book.edition}}<br>
+                <i>{{book.author}}</i> <br>
+                <img src="{{pictureOfLanguage(book.language)}}" id="langImg" ng-click="redirectToNewPath(book.id)">
             </div>
         </div>
     </div>
