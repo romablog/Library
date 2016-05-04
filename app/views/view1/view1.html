@@ -1,0 +1,32 @@
+<div  ng-controller="View1Ctrl">
+    <form>
+        <label for="levelOfTraining" class=""></label>
+        <select id="levelOfTraining" class="dropdown margin" ng-model="levelOfTraining">
+            <option value="" disabled>Level of trainng..</option>
+            <option value="beginner" class="dropdown">Beginner</option>
+            <option value="normal" class="dropdown">Normal</option>
+            <option value="master" class="dropdown">Master</option>
+        </select>
+        <label for="sortByCategory" class="margin">Filter by category:</label>
+        <input id="sortByCategory" type="checkbox" ng-model="sortByCategory">
+        <span ng-show="sortByCategory">
+            <label for="JavaScript" class="margin">JavaScript</label>
+            <input id="JavaScript" type="checkbox">
+            <label for="cLang" class="margin">C</label>
+            <input id="cLang" type="checkbox">
+            <label for="HTML" class="margin">HTML</label>
+            <input id="HTML" type="checkbox">
+            <label for="CSS" class="margin">CSS</label>
+            <input id="CSS" type="checkbox">
+        </span>
+        <input class="button" type="button" value="Filter" ng-click="sortBooks()">
+    </form>
+    <div class="my-flex-container">
+        <div class="my-flex-block" ng-repeat="book in books">
+            <img src="{{book.path}}" id="bookImg" ng-click="redirectToNewPath(book.id)"><br>
+            "{{book.titleEnglish}}"<br>
+            "{{book.titleRussian}}"<br>
+            {{book.author}}
+        </div>
+    </div>
+</div>
