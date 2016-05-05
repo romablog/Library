@@ -33,6 +33,7 @@
   min-width: 300px;
   margin: 20px;
   padding: 6.66666667px;
+  box-shadow: #333333 0 0 10px 0;
 }
 #bookImg {
   width: 150px;
