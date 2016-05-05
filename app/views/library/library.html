@@ -1,0 +1,59 @@
+<div  ng-controller="LibraryCtrl" class="margin-top">
+    <form style="display: flex; align-items: flex-end; flex-flow: wrap">
+        <fieldset class="filter" style="width: 120px">
+            <legend>Level of training</legend>
+            <label for="beginner" class="tagLabel">Beginner</label>
+            <input id="beginner" type="checkbox">
+            <label for="beginner"></label>
+
+            <label for="normal" class="tagLabel">Normal</label>
+            <input id="normal" type="checkbox">
+            <label for="normal"></label>
+
+            <label for="advanced" class="tagLabel">Advanced</label>
+            <input id="advanced" type="checkbox">
+            <label for="advanced"></label>
+        </fieldset>
+        <!--<label for="sortByCategory" class="margin">Filter by category:</label>-->
+        <!--<input id="sortByCategory" type="checkbox" ng-model="sortByCategory">-->
+        <fieldset class="filter">
+            <legend>Themes of book</legend>
+            <!--<label for="JavaScript" class="tagLabel">JavaScript</label>-->
+            <!--<input id="JavaScript" type="checkbox">-->
+            <!--<label for="JavaScript"></label>-->
+
+            <!--<label for="cLang" class="tagLabel">C</label>-->
+            <!--<input id="cLang" type="checkbox">-->
+            <!--<label for="cLang"></label>-->
+
+            <!--<label for="HTML" class="tagLabel">HTML</label>-->
+            <!--<input id="HTML" type="checkbox">-->
+            <!--<label for="HTML"></label>-->
+
+            <!--<label for="CSS" class="tagLabel">CSS</label>-->
+            <!--<input id="CSS" type="checkbox">-->
+            <!--<label for="CSS"></label>-->
+            <br>
+            <input type="button" class="tagButton" value="JavaScript  &#x2715">
+            <input type="button" class="tagButton" value="JavaScript  &#x2715">
+            <input type="button" class="tagButton" value="JavaScript  &#x2715">
+            <input type="button" class="tagButton" value="JavaScript  &#x2715">
+        </fieldset>
+        <input class="button margin filterButton" type="button" value="Filter" ng-click="sortBooks()">
+    </form>
+    <div class="my-flex-container">
+        <div class="book" ng-repeat="book in books" ng-class="{1:'enabled', 0:'disabled'}[book.status]">
+            <div class="photo floatLeft">
+                <img src="{{book.path}}" id="bookImg" ng-click="redirectToNewPath(book.id)">
+            </div>
+            <div class="representaionBook">
+                <b>"{{book.titleRussian}}"</b><br>
+                {{book.edition}}<br>
+                <i>{{book.author}}</i> <br>
+                <img src="{{pictureOfLanguage(book.language)}}" id="langImg" ng-click="redirectToNewPath(book.id)">
+                <input ng-show="book.status" type="button" class="getToRead" value="Get Book">
+                <label class="occupied" ng-show="!book.status">Book occupied to {{book.returnDate}}</label>
+            </div>
+        </div>
+    </div>
+</div>

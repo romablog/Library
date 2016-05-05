@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.library', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'views/view1/view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/library', {
+    templateUrl: 'views/library/library.html',
+    controller: 'LibraryCtrl'
   });
 }])
 
-.controller('View1Ctrl',['$scope', '$location', 'BookService',function($scope, $location, BookService) {
+.controller('LibraryCtrl',['$scope', '$location', 'BookService',function($scope, $location, BookService) {
   $scope.books = BookService.getAllBooks();
 
   $scope.redirectToNewPath = function (id) {

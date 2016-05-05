@@ -10,6 +10,7 @@
 @red-color: #E03C34;
 @margin-main: 20px;
 @block-width: 300px;
+@fieldset-height: 83px;
 
 .my-flex-container{
   display: flex;
@@ -48,6 +49,18 @@
   min-width: @block-width;
   margin: @margin-main;
   padding: @margin-main/3;
+  .shadow;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+}
+.book:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+
+.shadow {
   box-shadow: @dark-color 0 0 10px 0;
 }
 
@@ -103,6 +116,10 @@ body {
   margin-top: @margin-main/2;
 }
 
+.margin-left {
+  margin-left: @margin-main;
+}
+
 .button {
   background-color: @white-color;
   color: white;
@@ -125,13 +142,16 @@ body {
   background-color: @blue-main-color - #222222;
 }
 
-.infobutton {
-  .button;
-  font-size: 12px;
+.filterButton {
+  height: @fieldset-height + 10px;
 }
 
 .floatLeft {
   float: left;
+}
+
+.floatRight {
+  float: right;
 }
 
 .disabled {
@@ -158,6 +178,54 @@ body {
   -webkit-text-fill-color: @red-color;
   font-size: 16px;
   .relativeToRightBottomCorner;
+}
+
+.filter {
+  margin-inside: 0;
+  border: 2px solid @dark-color;
+  border-radius: 4px;
+  align-items: center;
+  display: inline;
+  height: @fieldset-height;
+  .margin;
+  .margin-left;
+}
+
+.tagLabel {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  margin-right: 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+.afterCheckBox {
+  margin-right: 10px;
+}
+
+input[type=checkbox] {
+  display: none;
+  size: 0 0;
+}
+
+input[type=checkbox]:checked + label:before {
+  content: url("http://www150.lunapic.com/do-not-link-here-use-hosting-instead/146243228097915?7364215963");
+  color: @green-color - #222222;
+}
+
+input[type=checkbox] + label:before {
+  content: url("http://www150.lunapic.com/do-not-link-here-use-hosting-instead/146243228097915?2530058981");
+  color: @green-color - #222222;
+}
+
+.tagButton {
+  background-color: @blue-main-color;
+  color: white;
+  display: inline;
+  border: 1px solid @blue-main-color - #222222;
+  border-radius: 10px;
+  padding: 3px;
 }
 
 //.dropdown select::after{
