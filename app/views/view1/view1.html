@@ -23,7 +23,7 @@
     </form>
     <div class="my-flex-container">
         <div class="book" ng-repeat="book in books" ng-class="{1:'enabled', 0:'disabled'}[book.status]">
-            <div style="float: left" class="photo">
+            <div class="photo floatLeft">
                 <img src="{{book.path}}" id="bookImg" ng-click="redirectToNewPath(book.id)">
             </div>
             <div class="representaionBook">
@@ -31,6 +31,8 @@
                 {{book.edition}}<br>
                 <i>{{book.author}}</i> <br>
                 <img src="{{pictureOfLanguage(book.language)}}" id="langImg" ng-click="redirectToNewPath(book.id)">
+                <input ng-show="book.status" type="button" class="getToRead" value="Get Book">
+                <label class="occupied" ng-show="!book.status">Book occupied to {{book.returnDate}}</label>
             </div>
         </div>
     </div>
