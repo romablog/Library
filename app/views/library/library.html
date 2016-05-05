@@ -1,14 +1,14 @@
 <div  ng-controller="LibraryCtrl" class="margin-top">
-    <form style="display: flex; flex-flow: wrap">
-        <span style="display: flex; flex-flow: column">
+    <form class="formFilter">
+        <span id="firstColumn">
             <input type="text" class="search input1 marginForm margin-left" placeholder="search">
-            <span style="display: flex; flex-flow: row; align-items: center;" class="margin-top">
+            <span class="margin-top" id="spanRow">
                 <label for="valid" class="tagLabel margin-left">Show only valid  </label>
                 <input id="valid" type="checkbox">
                 <label for="valid" class="small-margin-left"></label>
             </span>
         </span>
-        <fieldset class="filter" style="width: 120px">
+        <fieldset class="filter fieldset2">
             <legend>Level of training</legend>
             <label for="beginner" class="tagLabel">Beginner</label>
             <input id="beginner" type="checkbox">

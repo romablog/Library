@@ -283,3 +283,20 @@ input[type=checkbox] + label:before {
   height: 30px;
   width: 100px;
 }
+.formFilter {
+  display: flex;
+  flex-flow: wrap;
+}
+.fieldset2 {
+  width: 120px;
+}
+#firstColumn {
+  display: flex;
+  flex-flow: column;
+}
+#spanRow {
+  display: flex;
+  flex-flow: wrap;
+  flex-flow: row;
+  align-items: center;
+}
