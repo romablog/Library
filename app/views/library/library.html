@@ -1,5 +1,13 @@
 <div  ng-controller="LibraryCtrl" class="margin-top">
-    <form style="display: flex; align-items: flex-end; flex-flow: wrap">
+    <form style="display: flex; flex-flow: wrap">
+        <span style="display: flex; flex-flow: column">
+            <input type="text" class="search input1 marginForm margin-left" placeholder="search">
+            <span style="display: flex; flex-flow: row; align-items: center;" class="margin-top">
+                <label for="valid" class="tagLabel margin-left">Show only valid  </label>
+                <input id="valid" type="checkbox">
+                <label for="valid" class="small-margin-left"></label>
+            </span>
+        </span>
         <fieldset class="filter" style="width: 120px">
             <legend>Level of training</legend>
             <label for="beginner" class="tagLabel">Beginner</label>
@@ -18,28 +26,14 @@
         <!--<input id="sortByCategory" type="checkbox" ng-model="sortByCategory">-->
         <fieldset class="filter">
             <legend>Themes of book</legend>
-            <!--<label for="JavaScript" class="tagLabel">JavaScript</label>-->
-            <!--<input id="JavaScript" type="checkbox">-->
-            <!--<label for="JavaScript"></label>-->
-
-            <!--<label for="cLang" class="tagLabel">C</label>-->
-            <!--<input id="cLang" type="checkbox">-->
-            <!--<label for="cLang"></label>-->
-
-            <!--<label for="HTML" class="tagLabel">HTML</label>-->
-            <!--<input id="HTML" type="checkbox">-->
-            <!--<label for="HTML"></label>-->
-
-            <!--<label for="CSS" class="tagLabel">CSS</label>-->
-            <!--<input id="CSS" type="checkbox">-->
-            <!--<label for="CSS"></label>-->
+            <input type="text" class="searchTag input1" placeholder="search for tags">
             <br>
-            <input type="button" class="tagButton" value="JavaScript  &#x2715">
-            <input type="button" class="tagButton" value="JavaScript  &#x2715">
-            <input type="button" class="tagButton" value="JavaScript  &#x2715">
-            <input type="button" class="tagButton" value="JavaScript  &#x2715">
+            <input type="button" class="tagButton" value="JavaScript  &#x2715;">
+            <input type="button" class="tagButton" value="JavaScript  &#x2715;">
+            <input type="button" class="tagButton" value="JavaScript  &#x2715;">
+            <input type="button" class="tagButton" value="JavaScript  &#x2715;">
         </fieldset>
-        <input class="button margin filterButton" type="button" value="Filter" ng-click="sortBooks()">
+        <input class="button marginForm filterButton" type="button" value="Filter" ng-click="sortBooks()">
     </form>
     <div class="my-flex-container">
         <div class="book" ng-repeat="book in books" ng-class="{1:'enabled', 0:'disabled'}[book.status]">
