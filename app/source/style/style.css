@@ -1,16 +1,16 @@
-.my-flex-container {
+.book-flex-container {
   display: flex;
   background: #fff;
   counter-reset: my-flex-block-counter;
   justify-content: flex-start;
   flex-flow: row wrap;
 }
-.my-flex-block {
+.flex-block {
   display: flex;
   text-align: center;
   position: relative;
 }
-.representaionBook {
+.representation-book {
   text-align: left;
   flex-grow: 12;
   flex-basis: 150px;
@@ -39,9 +39,9 @@
   -webkit-transition: all 0.5s ease-out;
 }
 .book:hover {
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -o-transform: scale(1.05);
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -o-transform: scale(1.02);
 }
 .shadow {
   box-shadow: #333333 0 0 10px 0;
@@ -95,7 +95,7 @@ body {
 .small-margin-left {
   margin-left: 5px;
 }
-.marginForm {
+.margin-form {
   margin: 10px;
   margin-top: 20px;
   margin-left: 20px;
@@ -119,26 +119,26 @@ body {
 .button:active {
   background-color: #0079aa;
 }
-.filterButton {
+.filter-button {
   height: 93px;
   border-radius: 2px;
 }
-.floatLeft {
+.float-left {
   float: left;
 }
-.floatRight {
+.float-right {
   float: right;
 }
 .disabled {
   background-color: #E8EAEB;
   opacity: 0.7;
 }
-.relativeToRightBottomCorner {
+.relative-to-right-bottom-corner {
   position: absolute;
   bottom: 10px;
   right: 10px;
 }
-.getToRead {
+.get-to-read {
   background-color: #fff;
   color: white;
   padding: 8px 20px;
@@ -154,7 +154,7 @@ body {
   bottom: 10px;
   right: 10px;
 }
-.getToRead:active {
+.get-to-read:active {
   background-color: #20c93f;
 }
 .occupied {
@@ -174,16 +174,13 @@ body {
   margin: 10px;
   margin-left: 20px;
 }
-.tagLabel {
+.tag-label {
   display: inline-block;
   cursor: pointer;
   position: relative;
   margin-right: 0;
   text-align: center;
   font-size: 18px;
-}
-.afterCheckBox {
-  margin-right: 10px;
 }
 input[type=checkbox] {
   display: none;
@@ -197,7 +194,7 @@ input[type=checkbox] + label:before {
   content: url("http://i.imgur.com/RBqtKi3.png");
   color: #20c93f;
 }
-.tagButton {
+.tag-button {
   outline: none;
   background-color: #139BCC;
   color: white;
@@ -208,10 +205,10 @@ input[type=checkbox] + label:before {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
-.tagButton:active {
+.tag-button:active {
   background-color: #42EB61;
 }
-.searchTag {
+.search-tag {
   background-color: #fff;
   color: white;
   padding: 8px 20px;
@@ -223,6 +220,7 @@ input[type=checkbox] + label:before {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
+  padding: 8px 10px;
   height: 10px;
   cursor: text;
   margin-bottom: 10px;
@@ -233,30 +231,12 @@ input[type=checkbox] + label:before {
   transition: opacity 0.3s ease;
   -webkit-text-fill-color: gray;
 }
-.input1::-moz-placeholder {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  -webkit-text-fill-color: gray;
-}
-.input1:-moz-placeholder {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  -webkit-text-fill-color: gray;
-}
 .input1:-ms-input-placeholder {
   opacity: 1;
   transition: opacity 0.3s ease;
   -webkit-text-fill-color: gray;
 }
 .input1:focus::-webkit-input-placeholder {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.input1:focus::-moz-placeholder {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.input1:focus:-moz-placeholder {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -276,27 +256,50 @@ input[type=checkbox] + label:before {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
+  padding: 8px 10px;
   height: 10px;
   cursor: text;
   margin-bottom: 10px;
   text-align: left;
   height: 30px;
-  width: 100px;
+  width: 150px;
 }
-.formFilter {
+.form-filter {
   display: flex;
   flex-flow: wrap;
 }
-.fieldset2 {
+.field-set2 {
   width: 120px;
 }
-#firstColumn {
+.column-flex {
   display: flex;
   flex-flow: column;
 }
-#spanRow {
+.row-flex {
   display: flex;
   flex-flow: wrap;
   flex-flow: row;
   align-items: center;
+}
+.row-flex-align-start {
+  display: flex;
+  flex-flow: wrap;
+  flex-flow: row;
+  align-items: center;
+  align-items: flex-start;
+}
+.alone-book {
+  margin: 10px;
+  width: 400px;
+  height: 600px;
+}
+.reset {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h3 {
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
 }
