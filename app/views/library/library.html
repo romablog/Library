@@ -1,52 +1,51 @@
 <div  ng-controller="LibraryCtrl" class="margin-top">
-    <form class="formFilter">
-        <span id="firstColumn">
-            <input type="text" class="search input1 marginForm margin-left" placeholder="search">
-            <span class="margin-top" id="spanRow">
-                <label for="valid" class="tagLabel margin-left">Show only valid  </label>
-                <input id="valid" type="checkbox">
-                <label for="valid" class="small-margin-left"></label>
+    <form class="form-filter" >
+        <span class="column-flex">
+            <input type="text" class="search input1 margin-form margin-left" placeholder="search" ng-model="filter.search" ng-change="getBooks()">
+            <span class="margin-top row-flex">
+                <input id="valid" type="checkbox" ng-change="getBooks()" ng-model="filter.availableOnly">
+                <label for="valid" class="margin-left"></label>
+                <label for="valid" class="tag-label small-margin-left">Show only available  </label>
             </span>
         </span>
-        <fieldset class="filter fieldset2">
+        <fieldset class="filter field-set2">
             <legend>Level of training</legend>
-            <label for="beginner" class="tagLabel">Beginner</label>
-            <input id="beginner" type="checkbox">
-            <label for="beginner"></label>
-
-            <label for="normal" class="tagLabel">Normal</label>
-            <input id="normal" type="checkbox">
-            <label for="normal"></label>
-
-            <label for="advanced" class="tagLabel">Advanced</label>
-            <input id="advanced" type="checkbox">
-            <label for="advanced"></label>
+            <span class="column-flex">
+                <span class="row-flex">
+                    <input id="beginner" type="checkbox" ng-change="getBooks()" ng-model="filter.level.beginner">
+                    <label for="beginner" class="small-margin-left"></label>
+                    <label for="beginner" class="tag-label small-margin-left">Beginner</label>
+                </span>
+                <span class="row-flex">
+                    <input id="normal" type="checkbox" ng-change="getBooks()" ng-model="filter.level.normal">
+                    <label for="normal" class="small-margin-left"></label>
+                    <label for="normal" class="tagLabel small-margin-left">Normal</label>
+                </span>
+                <span class="row-flex">
+                    <input id="advanced" type="checkbox" ng-change="getBooks()" ng-model="filter.level.advanced">
+                    <label for="advanced" class="small-margin-left"></label>
+                    <label for="advanced" class="tag-label small-margin-left">Advanced</label>
+                </span>
+            </span>
         </fieldset>
-        <!--<label for="sortByCategory" class="margin">Filter by category:</label>-->
-        <!--<input id="sortByCategory" type="checkbox" ng-model="sortByCategory">-->
         <fieldset class="filter">
             <legend>Themes of book</legend>
-            <input type="text" class="searchTag input1" placeholder="search for tags">
-            <br>
-            <input type="button" class="tagButton" value="JavaScript  &#x2715;">
-            <input type="button" class="tagButton" value="JavaScript  &#x2715;">
-            <input type="button" class="tagButton" value="JavaScript  &#x2715;">
-            <input type="button" class="tagButton" value="JavaScript  &#x2715;">
+            <tags-directive tags="filter.tags" change="getBooks"></tags-directive>
         </fieldset>
-        <input class="button marginForm filterButton" type="button" value="Filter" ng-click="sortBooks()">
+        <!--<input class="button marginForm filterButton" type="button" value="Filter" ng-click="sortBooks()">-->
     </form>
-    <div class="my-flex-container">
-        <div class="book" ng-repeat="book in books" ng-class="{1:'enabled', 0:'disabled'}[book.status]">
-            <div class="photo floatLeft">
-                <img src="{{book.path}}" id="bookImg" ng-click="redirectToNewPath(book.id)">
+    <div class="book-flex-container">
+        <div class="book" ng-repeat="book in books" ng-class="{true:'enabled', false:'disabled'}[book.available]">
+            <div class="photo float-left">
+                <img src="{{book.path}}" alt="book icon" id="bookImg" ng-click="redirectToPathOfBook(book.id)">
             </div>
-            <div class="representaionBook">
-                <b>"{{book.titleRussian}}"</b><br>
-                {{book.edition}}<br>
+            <div class="representation-book">
+                <a id="bookHref" href="#/book/{{book.id}}"><b>"{{book.titleRussian}}"</b></a><br>
+                {{getEdition(book.edition)}}<br>
                 <i>{{book.author}}</i> <br>
-                <img src="{{pictureOfLanguage(book.language)}}" id="langImg" ng-click="redirectToNewPath(book.id)">
-                <input ng-show="book.status" type="button" class="getToRead" value="Get Book">
-                <label class="occupied" ng-show="!book.status">Book occupied to {{book.returnDate}}</label>
+                <img src="{{getLanguageIcon(book.language)}}" alt="language icon" id="langImg">
+                <input ng-show="book.available" type="button" class="get-to-read" value="Get Book">
+                <label class="occupied" ng-show="!book.available">Book occupied to <time>{{getDate(book.returnDate)}}</time></label>
             </div>
         </div>
     </div>

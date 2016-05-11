@@ -1,6 +1,11 @@
 <div ng-controller="BookCtrl">
-    <img src="{{book.path}}"><br>
-    "{{book.titleEnglish}}"<br>
-    "{{book.titleRussian}}"<br>
-    {{book.author}}
+    <div class="rowFlexAlignStart">
+        <img src="{{book.path}}" alt="book icon" class="aloneBook"><br>
+        <div class="columnFlex">
+            <h1>"{{book.titleRussian}}"</h1>
+            <h3>"{{book.titleEnglish}}"</h3>
+            "{{book.titleEnglish}}"<br>
+            {{book.author}}
+        </div>
+    </div>
 </div>

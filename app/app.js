@@ -9,4 +9,10 @@ angular.module('myApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/library'});
+  $routeProvider.when('/library', {
+    templateUrl: 'views/library/library.html'
+  });
+  $routeProvider.when('/book/:id', {
+    templateUrl: 'views/book/book.html'
+  });
 }]);

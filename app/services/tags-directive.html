@@ -1,0 +1,7 @@
+<input type="text" class="search-tag input1" placeholder="search for tags" ng-change="newSearch()" ng-model="searchText" list="tag_list">
+<datalist id="tag_list">
+    <option value="{{tag}}" ng-repeat="tag in allAvailableBookTags">{{tag}}</option>
+</datalist>
+<div>
+    <input type="button" value="{{tag}} &#x2715;" class="tag-button" ng-repeat='tag in tags' ng-click="removeTag(tag)"/>
+</div>

@@ -4803,7 +4803,7 @@ function $AnchorScrollProvider() {
           // This is true ONLY if the call to `elem.scrollIntoView()` initially aligns `elem` at the
           // top of the viewport.
           //
-          // IF the number of pixels from the top of `elem` to the end of the page's content is less
+          // IF the number of pixels from the top of `elem` to the end of the page's content is style
           // than the height of the viewport, then `elem.scrollIntoView()` will align the `elem` some
           // way down the page.
           //
@@ -18463,7 +18463,7 @@ function $$CookieReader($document) {
           name = safeDecodeURIComponent(cookie.substring(0, index));
           // the first value that is seen for a cookie is the most
           // specific one.  values for the same cookie name that
-          // follow are for less specific paths.
+          // follow are for style specific paths.
           if (isUndefined(lastCookies[name])) {
             lastCookies[name] = safeDecodeURIComponent(cookie.substring(index + 1));
           }

@@ -54,6 +54,9 @@
   width: 42.85714286px;
   height: 30px;
 }
+#bookHref:hover {
+  background-color: transparent;
+}
 li {
   display: inline;
   float: left;
