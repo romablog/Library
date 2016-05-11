@@ -1,5 +1,5 @@
 <div  ng-controller="LibraryCtrl" class="margin-top">
-    <form class="form-filter" >
+    <form class="form-filter">
         <span class="column-flex">
             <input type="text" class="search input1 margin-form margin-left" placeholder="search" ng-model="filter.search" ng-change="getBooks()">
             <span class="margin-top row-flex">
@@ -30,7 +30,7 @@
         </fieldset>
         <fieldset class="filter">
             <legend>Themes of book</legend>
-            <tags-directive tags="filter.tags" change="getBooks"></tags-directive>
+            <tags-directive tags="filter.tags"></tags-directive>
         </fieldset>
         <!--<input class="button marginForm filterButton" type="button" value="Filter" ng-click="sortBooks()">-->
     </form>

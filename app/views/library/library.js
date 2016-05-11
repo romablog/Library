@@ -1,20 +1,14 @@
 'use strict';
 
 angular.module('myApp.library', ['ngRoute']).
-controller('LibraryCtrl', ['$scope', '$location', 'BookService',function($scope, $location, BookService) {
+controller('LibraryCtrl', ['$rootScope','$scope', '$location', 'BookService',function($rootScope,$scope, $location, BookService) {
   
   $scope.filter = new Filter();
-  $scope.bookLevels = [0, 1, 2];
-  $scope.books = BookService.getBooksForLevels($scope.bookLevels);
 
   $scope.getBooks = function () {
     $scope.books = BookService.getBooksWithFilter($scope.filter)
   };
-  var levelOfBook = {
-    0: 'beginner',
-    1: 'normal',
-    2: 'advanced'
-  };
+  $scope.getBooks();
   
   $scope.redirectToPathOfBook = function (id) {
     $location.path('/book/'+id);
@@ -44,27 +38,6 @@ controller('LibraryCtrl', ['$scope', '$location', 'BookService',function($scope,
   $scope.getDate = function (date) {
     return new Date(date).toLocaleDateString()
   };
-  
-  //archive
-  $scope.filterLevelOfBooks = function (level, value) {
-    var index = $scope.bookLevels.indexOf(level);
-    if (value && index === -1) {
-      $scope.bookLevels.push(level)
-    }
-    if (!value && index > -1) {
-      $scope.bookLevels.splice(index, 1);
-    }
-    $scope.books = BookService.getBooksForLevels($scope.bookLevels);
-    if ($scope.filter.availableOnly){
-      $scope.books = BookService.getValidBooks($scope.books);
-    }
-  };
-  $scope.changeOnlyValid = function () {
-    console.log("changeOnlyValid" + $scope.filter.availableOnly);
-    if ($scope.filter.availableOnly){
-      $scope.books = BookService.getValidBooks($scope.books);
-    } else {
-      $scope.books = BookService.getBooksForLevels($scope.bookLevels);
-    }
-  };
+
+  $scope.$on('tags.changed', $scope.getBooks);
 }]);

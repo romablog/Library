@@ -2,13 +2,12 @@ app = angular.module('myApp');
 app.directive('tagsDirective', ['BookService', function (BookService) {
     return {
         scope: {
-            tags:'=tags',
-            changed:'=change'
+            tags:'='
         },
         restrict: 'E',
         templateUrl:'services/tags-directive.html',
         link: function (scope, element, attrs) {
-            scope.allAvailableBookTags = BookService.getAllTags(); //['JS', 'HTML','CSS','Swift'];
+            scope.allAvailableBookTags = BookService.getAllTags();
             scope.searchText = '';
             scope.newSearch = function () {
                 if (!~scope.tags.indexOf(scope.searchText)){
@@ -17,14 +16,15 @@ app.directive('tagsDirective', ['BookService', function (BookService) {
                     if (~indexInAvailable){
                         scope.tags.push(scope.searchText);
                         scope.allAvailableBookTags.splice(indexInAvailable, 1);
-                        scope.changed();
+                        scope.$emit('tags.changed');
+                        scope.searchText = '';
                     }
                 }
             };
             scope.removeTag = function (tag){
                 scope.tags.splice(scope.tags.indexOf(tag), 1);
-                scope.changed();
-                scope.allAvailableBookTags.push(tag)
+                scope.allAvailableBookTags.push(tag);
+                scope.$emit('tags.changed');
             };
         }
     };
