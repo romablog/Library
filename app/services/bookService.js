@@ -14,7 +14,7 @@
         
         this.getBook = function (id) {
             var resultBook = null;
-            this.books.forEach(function (book) {
+            this.books.some(function (book) {
                 if (book.id == id)
                     resultBook = book
             });

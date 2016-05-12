@@ -1,11 +1,40 @@
 <div ng-controller="BookCtrl">
-    <div class="rowFlexAlignStart">
-        <img src="{{book.path}}" alt="book icon" class="aloneBook"><br>
-        <div class="columnFlex">
+    <div class="row-flex-align-start margin">
+        <div class="flex-block">
+            <div ng-show="book.isNew()" class="ribbon-new margin">
+                <img src="source/images/ribbon_new.png" alt="new icon">
+            </div>
+            <img src="{{book.path}}" alt="book icon" class="alone-book border-book no-margin"><br>
+        </div>
+        <div class="column-flex margin">
             <h1>"{{book.titleRussian}}"</h1>
-            <h3>"{{book.titleEnglish}}"</h3>
-            "{{book.titleEnglish}}"<br>
-            {{book.author}}
+            <div class="row-flex big-margin-top">
+                <p class="description-book">English name:</p><h3 class="no-margin"> "{{book.titleEnglish}}"</h3>
+            </div>
+            <div class="row-flex">
+                <p class="description-book">Edition:</p><h3 class="no-margin"> {{book.getEdition()}}</h3>
+            </div>
+            <div class="row-flex">
+                <p class="description-book">Author:</p><h3 class="no-margin"> {{book.author}}</h3>
+            </div>
+            <div class="row-flex">
+                <p class="description-book">Language:</p> <img src="{{book.getLanguageIcon()}}" alt="language icon" class="lang-img">
+            </div>
+            <div class="row-flex">
+                <p class="description-book">Release date:</p><h3 class="no-margin"> {{book.localeDate(book.releaseDate)}}</h3>
+            </div>
+            <div class="row-flex">
+                <p class="description-book">Publishing house:</p><h3 class="no-margin"> {{book.publishingHouse}}</h3>
+            </div>
+            <div class="row-flex-align-start">
+                <p class="description-book">Level of  training:</p><h3 class="no-margin"> {{book.getStringOfLevel()}}</h3>
+            </div>
+            <div class="row-flex-align-start margin-top">
+                <p class="description-book">Description:</p><h3 class="no-margin"> {{book.description}}</h3>
+            </div>
+            {{book.tags}}<br>
+            {{book.localeDate(book.addedDate)}}<br>
+
         </div>
     </div>
 </div>

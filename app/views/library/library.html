@@ -36,16 +36,21 @@
     </form>
     <div class="book-flex-container">
         <div class="book" ng-repeat="book in books" ng-class="{true:'enabled', false:'disabled'}[book.available]">
-            <div class="photo float-left">
-                <img src="{{book.path}}" alt="book icon" id="bookImg" ng-click="redirectToPathOfBook(book.id)">
+            <div ng-click="redirectToPathOfBook(book.id)">
+                <div ng-show="book.isNew()" class="ribbon-new">
+                    <img src="source/images/ribbon_new.png" alt="new icon">
+                </div>
+                <div class="photo float-left">
+                    <img src="{{book.path}}" alt="book icon" id="bookImg">
+                </div>
             </div>
             <div class="representation-book">
                 <a id="bookHref" href="#/book/{{book.id}}"><b>"{{book.titleRussian}}"</b></a><br>
-                {{getEdition(book.edition)}}<br>
+                {{book.getEdition()}}<br>
                 <i>{{book.author}}</i> <br>
-                <img src="{{getLanguageIcon(book.language)}}" alt="language icon" id="langImg">
+                <img src="{{book.getLanguageIcon()}}" alt="language icon" class="lang-img">
                 <input ng-show="book.available" type="button" class="get-to-read" value="Get Book">
-                <label class="occupied" ng-show="!book.available">Book occupied to <time>{{getDate(book.returnDate)}}</time></label>
+                <label class="occupied" ng-show="!book.available">Book occupied to <time>{{book.localeDate(book.returnDate)}}</time></label>
             </div>
         </div>
     </div>

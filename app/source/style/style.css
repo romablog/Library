@@ -47,15 +47,16 @@
   box-shadow: #333333 0 0 10px 0;
 }
 #bookImg {
+  border: 1px solid #333333;
   width: 150px;
   height: 200px;
 }
-#langImg {
-  width: 42.85714286px;
-  height: 30px;
-}
 #bookHref:hover {
   background-color: transparent;
+}
+.lang-img {
+  width: 42.85714286px;
+  height: 30px;
 }
 li {
   display: inline;
@@ -94,6 +95,12 @@ body {
 }
 .margin-left {
   margin-left: 20px;
+}
+.no-margin {
+  margin: 0;
+}
+.big-margin-top {
+  margin-top: 80px;
 }
 .small-margin-left {
   margin-left: 5px;
@@ -293,7 +300,7 @@ input[type=checkbox] + label:before {
 }
 .alone-book {
   margin: 10px;
-  width: 400px;
+  width: 450px;
   height: 600px;
 }
 .reset {
@@ -305,4 +312,21 @@ h3 {
   margin: 0;
   padding: 0;
   margin-top: 10px;
+}
+.ribbon-new {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.border-book {
+  border: 1px solid #333333;
+}
+.description-book {
+  width: 130px;
+  min-width: 130px;
+  text-align: right;
+  padding-right: 5px;
+  margin: 0;
 }
