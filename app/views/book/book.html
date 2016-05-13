@@ -1,12 +1,14 @@
 <div ng-controller="BookCtrl">
     <div class="row-flex-align-start margin">
-        <div class="flex-block flex-grow-shrink">
-            <div ng-show="book.isNew()" class="ribbon-new margin">
+        <div class="column-flex margin book-min-width">
+            <div ng-show="book.isNew()" class="img-ribbon-new">
                 <img src="source/images/ribbon_new.png" alt="new icon">
             </div>
-            <img src="{{book.path}}" alt="book icon" class="alone-book border-book no-margin"><br>
+            <div>
+                <img src="{{book.path}}" alt="book icon" class="alone-book border-book no-margin"><br>
+            </div>
         </div>
-        <div class="column-flex flex-grow-shrink margin">
+        <div class="column-flex margin">
             <h1>"{{book.titleRussian}}"</h1>
             <div class="row-flex big-margin-top">
                 <p class="description-book">English name:</p><h3 class="no-margin"> "{{book.titleEnglish}}"</h3>
