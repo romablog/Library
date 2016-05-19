@@ -1,3 +1,4 @@
+
 (function () {
   'use strict';
 
@@ -30,14 +31,29 @@
       $scope.exception = true;
     });
 
-    var destroyTagsChanged = $scope.$on('tags.changed', $scope.getBooksWithFilter);
-
     $scope.$on('$destroy', function () {
       destroyTagsChanged();
+      animationStart();
+      animationEnd();
     });
-    var elems = document.getElementsByClassName("book");
-    elems.forEach.addEventListener("transitionend", function (event) {
-      
-    })
+
+    var destroyTagsChanged = $scope.$on('tags.changed', $scope.getBooksWithFilter);
+
+    var el = document.getElementById('mainDiv');
+
+    var animationEnd = el.addEventListener('animationend', function (event) {
+      console.log(event);
+      if (event.animationName === 'hide-block'){
+        event.srcElement.style.display = 'none';
+      }
+    });
+
+    var animationStart = el.addEventListener('animationstart', function (event) {
+      console.log(event);
+      if (event.animationName === 'show-block'){
+        event.srcElement.style.display = 'flex';
+      }
+    });
+
   }]);
 })();

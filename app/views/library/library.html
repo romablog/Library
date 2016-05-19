@@ -35,7 +35,7 @@
         <!--<input class="button marginForm filterButton" type="button" value="Filter" ng-click="sortBooks()">-->
     </form>
     <p ng-show="exception" class="error">Error: Books not found!</p>
-    <div class="book-flex-container">
+    <div class="book-flex-container" id="mainDiv">
         <div class="book disabled" ng-repeat="book in allBooks"  ng-class="{'enabled':book.available, 'hide-block':book.hidden, 'show-block':!book.hidden}" >
             <div ng-click="redirectToPathOfBook(book.id)">
                 <div ng-show="book.isNew()" class="ribbon-new">
