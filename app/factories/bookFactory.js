@@ -1,143 +1,31 @@
 (function () {
     'use strict';
     var app = angular.module('myApp');
-    app.factory('bookFactory', ['$http' ,function ($http) {
-        var books = [{
-            id: 1,
-            titleRussian: "Совершенный код",
-            titleEnglish: "Code Complete",
-            author: "Steve McConnell",
-            releaseDate: "2004-07-06T21:00:00.000Z",
-            publishingHouse: "Microsoft Press",
-            description: 'Эта книга получила всеобщее признание как одно из лучших практических руководств по ' +
-            'программированию. Эта книга помогает девелоперам писать лучшее ПО уже больше десяти лет. Второе издание ' +
-            'книги было обогащено последними передовыми практиками разработки, а также сотнями примеров кода, ' +
-            'демонстрирующих искусство программирования во всём его техническом совершенстве. Сочетая базовые ' +
-            'знания из исследований, теоретические выкладки и ежедневную практику коммерческой разработки, ' +
-            'МакКоннелл синтезирует наиболее эффективные техники, принципы, которые разработчики просто обязаны ' +
-            'знать, и преподносит всё это в виде чётких и прагматичных рекомендаций. Не важно, какой у вас уровень ' +
-            'опыта, среда разработки или размер проекта, эта книга расскажет вам, как писать код самого высокого ' +
-            'качества, и будет стимулировать ваше мышление развиваться в правильную сторону.',
-            tags: ['JS', 'HTML', 'C', 'CSS'],
-            path: "source/images/perfect_code.jpg",
-            edition: 2,
-            language: "ru-RU",
-            available: true,
-            returnDate: '',
-            levelOfTraining: 2,
-            addedDate: '2016-05-03T00:00:00.000Z'
-        },{
-            id: 2,
-            titleRussian: "Программист-прагматик: от подмастерья к мастеру",
-            titleEnglish: "The Pragmatic Programmer: From Journeyman to Master",
-            author: "Andrew Hunt, David Thomas",
-            releaseDate: "1999-10-29T21:00:00.000Z",
-            publishingHouse: "Addison-Wesley Professional",
-            description: 'Как и любое другое ремесло, программирование наработало с годами знания, которые не ' +
-            'преподаются в университетах и не входят в программы сертификации. Большинство программистов узнают ' +
-            'эти уловки и хитрости с течением времени, идя путём самостоятельных экспериментов. В «Прагматичном ' +
-            'программисте» Эндрю Хант и Дэвид Томас раскрывают многие истины, которые они познали в течение своих ' +
-            'заслуженных карьер дизайнеров и разработчиков ПО. Самое крутое в этой книге то, что она помогает ' +
-            'сохранять свежий взгляд на программирование, помогает вам продолжать развиваться и ясно показывает ' +
-            'вам как это делать, поскольку написана теми, кто уже прошёл этот путь.',
-            tags: ['C', 'CSS'],
-            path: "source/images/pragmatic_programmer.jpg",
-            edition: 2,
-            language: "ru-RU",
-            available: true,
-            returnDate: '',
-            levelOfTraining: 1,
-            addedDate: '2016-05-03T00:00:00.000Z'
-        },{
-            id: 3,
-            titleRussian: "Структура и интерпретация компьютерных программ",
-            titleEnglish: "Structure and Interpretation of Computer Programs",
-            author: "Harold Abelson, Gerald J Sussman, Julie Sussman",
-            releaseDate: "1996-07-31T21:00:00.000Z",
-            publishingHouse: "McGraw-Hill Science/Engineering/Math",
-            description: 'Учит читателей программировать, используя инструменты абстракции и модульности. ' +
-            'Главная идея авторов заключается в том, что программирование – это задача и искусство разбивки ' +
-            'больших задач на маленькие. Из книги вы узнаете кое-что о функциональном программировании, ленивых ' +
-            'вычислениях, метапрограммировании (метаязыковой абстракции), виртуальных машинах, интерпретаторах и ' +
-            'компиляторах. Книга изначально была написана для всемирно известного 6.001, вводного курса ' +
-            'программирования в Массачусетском технологическом институте. Возможно, потребуется напрячь интеллект, ' +
-            'чтобы её освоить, но результат стоит того.',
-            tags: ['HTML', 'C'],
-            path: "source/images/structure_of_program.jpg",
-            edition: 2,
-            language: "ru-RU",
-            available: false,
-            returnDate: '2016-06-12T21:00:00.000Z',
-            levelOfTraining: 1,
-            addedDate: '2016-04-03T00:00:00.000Z'
-        },{
-            id: 4,
-            titleRussian: "Язык программирования Си",
-            titleEnglish: "The C Programming Language",
-            author: "Brian W Kernighan и Dennis M Ritchie",
-            releaseDate: "1988-03-31T21:00:00.000Z",
-            publishingHouse: "Prentice Hall",
-            description: 'Краткая и легкая в чтении, она научит вас трём вещам: языку программирования С, думать, ' +
-            'как программист, и пониманию абстрактной модели машины С (что и как работает, образно выражаясь, ' +
-            '"под капотом"). Написана в соавторстве с Деннисом Ритчи, изобретателем языка программирования Си.',
-            tags: ['C'],
-            path: "source/images/CProgramming.jpg",
-            edition: 2,
-            language: "ru-RU",
-            available: true,
-            returnDate: '',
-            levelOfTraining: 0,
-            addedDate: '2016-04-03T00:00:00.000Z'
-        },{
-            id: 5,
-            titleRussian: "Введение в алгоритмы",
-            titleEnglish: "Introduction to Algorithms",
-            author: "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest и Clifford Stein",
-            releaseDate: "2009-07-30T21:00:00.000Z",
-            publishingHouse: "MIT Press",
-            description: '"Библия" в своей отрасли знаний, является всеобъемлющим учебником, охватывающим весь ' +
-            'спектр современных алгоритмов: от самых быстрых алгоритмов и структур данных до полиномиальных ' +
-            'алгоритмов для решения, казалось бы, неразрешимых проблем, от классических алгоритмов в теории графов ' +
-            'до специальных алгоритмов для сравнения строк, вычислительной геометрии и теории чисел. Пересмотренное ' +
-            'третье издание снабжено главой о деревьях Ван Эмде Боаса, одних из наиболее полезных структур данных, а ' +
-            'также о многопоточных алгоритмах, которые сейчас приобретают все большее значение.',
-            tags: ['JS', 'C'],
-            path: "source/images/Introduction.jpg",
-            edition: 1,
-            language: "en-GB",
-            available: false,
-            returnDate: '2016-07-01T21:00:00.000Z',
-            levelOfTraining: 1,
-            addedDate: '2016-05-03T00:00:00.000Z'
-        },{
-            id: 6,
-            titleRussian: "Рефакторинг: улучшение существующего кода",
-            titleEnglish: "Refactoring: Improving the Design of Existing Code",
-            author: "Martin Fowler, Kent Beck, John Brant и William Opdyke",
-            releaseDate: "1999-07-07T21:00:00.000Z",
-            publishingHouse: "Addison-Wesley Professional",
-            description: 'Рефакторинг – это способ улучшения дизайна существующего кода. Это процесс изменения ' +
-            'программного обеспечения системы таким образом, что его внешнее поведение остаётся прежним, но ' +
-            'улучшается внутренняя структура кода. С помощью рефакторинга вы можете даже взять плохой дизайн ' +
-            'приложения и переделать его в хороший. Эта книга предлагает подробное обсуждение принципов ' +
-            'рефакторинга, включая способы выявления возможностей применения рефакторинга и необходимого ' +
-            'при этом тестирования. Также предлагается каталог из более 40 моментов рефакторинга, с подробной ' +
-            'информацией о том, когда и почему нужно их использовать, пошаговыми инструкциями по их реализации, ' +
-            'а также примерами того, как всё это работает и что даёт. Примеры в книге написаны для Java, но идеи ' +
-            'применимы, в принципе, к любому языку OOП.',
-            tags: ['JS', 'HTML', 'C', 'CSS'],
-            path: "source/images/Refactoring.jpg",
-            edition: 1,
-            language: "en-GB",
-            available: false,
-            returnDate: '2016-06-01T21:00:00.000Z',
-            levelOfTraining: 2,
-            addedDate: '2016-04-03T00:00:00.000Z'
-        }];
-        return {
-            getAllBooks: function () {
-                return books;
+    app.factory('bookFactory', [
+        '$http' ,
+        function ($http) {
+            return {
+                getAllBooks: function () {
+                    return $http.post('http://localhost:3000/', {"method": "getBooks"})
+                        .then(function (data) {
+                            return data.data.map(function (book) {
+                                return new Book(book);
+                            })
+                        })
+                },
+                getBook: function (id) {
+                    return $http.post('http://localhost:3000/', {"method": "getBook", "params":id})
+                        .then(function (data) {
+                            return new Book(data.data);
+                        });
+                },
+                insertBook: function (book) {
+                    return $http.post('http://localhost:3000/', {"method":"insertBook", "params":book});
+                },
+                addReader: function (book, reader, date) {
+                    return $http.post('http://localhost:3000/', {"method":"addReader", "params":{"id": book.id, "reader": reader, "date": date}});
+                }
             }
         }
-    }]);
+    ]);
 })();

@@ -16,9 +16,11 @@
         this.language = res.language || '';
         this.available = res.available || false;
         this.levelOfTraining = res.levelOfTraining || 0;
-        this.returnDate = res.returnDate || '';
-        this.releaseDate = res.releaseDate || '1971-01-01T00:00:00.000Z';
-        this.addedDate = res.addedDate || '2000-01-02T00:00:00.000Z';
+        this.returnDate = new Date(res.returnDate) || '';
+        this.releaseDate = new Date(res.releaseDate) || new Date('1971-01-01T00:00:00.000Z');
+        this.addedDate = new Date(res.addedDate)  || new Date('2000-01-02T00:00:00.000Z');
+        this.peopleInQueue = res.peopleInQueue || [];
+        this.hidden = false;
         this.arrayForSearch = [this.titleRussian, this.titleEnglish, this.author,
             this.releaseDate, this.path, this.description];
     };
@@ -50,9 +52,12 @@
     };
 
     Book.prototype.isNew = function () {
-        var addedDate = new Date(this.addedDate);
-        addedDate.setDate(addedDate.getDate() + 14);
-        return addedDate > new Date();
+        var date = new Date().setDate(new Date().getDate() - 20);
+        return this.addedDate > date;
+    };
+    
+    Book.prototype.isReader = function(reader){
+        return ~this.peopleInQueue.indexOf(reader);
     };
     
     Book.prototype.localeDate = function (date) {

@@ -1,7 +1,8 @@
 <div ng-controller="BookCtrl">
-    <div class="row-flex-align-start margin">
+    <p ng-show="exception" class="error">Error: Book not found!</p>
+    <div class="row-flex-align-start margin" ng-hide="exception">
         <div class="column-flex margin book-min-width">
-            <div ng-show="book.isNew()" class="img-ribbon-new">
+            <div ng-show="book.isNew()" class="img-ribbon-new" >
                 <img src="source/images/ribbon_new.png" alt="new icon">
             </div>
             <div>
@@ -10,7 +11,18 @@
         </div>
         <div class="column-flex margin">
             <h1>"{{book.titleRussian}}"</h1>
-            <div class="row-flex big-margin-top">
+            <div class="row-flex fixed-height">
+                <p class="description-book"></p>
+                <input ng-show="book.available" type="button" class="button margin" value="Get Book" ng-click="getBookButton('Roman')">
+                <div class="column-flex" ng-hide="book.available || book.isReader(user.firstName)">
+                    <h3 class="no-margin info">Данная книга недоступна сейчас. Её {{getCountOfPeople()}} до <time>{{book.localeDate(book.returnDate)}}</time></h3>
+                    <input type="button" class="button button-fixed-width margin" value="Reserve Book" ng-click="reserveBook(user.firstName)">
+                </div>
+                <div class="column-flex" ng-show="book.isReader(user.firstName)">
+                    <h3 class="no-margin info">Вы в очереди на чтение.</h3>
+                </div>
+            </div>
+            <div class="row-flex">
                 <p class="description-book">English name:</p><h3 class="no-margin"> "{{book.titleEnglish}}"</h3>
             </div>
             <div class="row-flex">
@@ -20,10 +32,10 @@
                 <p class="description-book">Author:</p><h3 class="no-margin"> {{book.author}}</h3>
             </div>
             <div class="row-flex">
-                <p class="description-book">Language:</p> <img src="{{book.getLanguageIcon()}}" alt="language icon" class="lang-img">
+                <p class="description-book">Language:</p> <img src="" alt="language icon" class="lang-img img-language-{{book.language.toLowerCase()}}">
             </div>
             <div class="row-flex">
-                <p class="description-book">Release date:</p><h3 class="no-margin"> {{book.localeDate(book.releaseDate)}}</h3>
+                <p class="description-book">Release date:</p><h3 class="no-margin"> <time>{{book.localeDate(book.releaseDate)}}</time></h3>
             </div>
             <div class="row-flex">
                 <p class="description-book">Publishing house:</p><h3 class="no-margin"> {{book.publishingHouse}}</h3>
@@ -34,9 +46,11 @@
             <div class="row-flex-align-start margin-top">
                 <p class="description-book">Description:</p><h3 class="no-margin"> {{book.description}}</h3>
             </div>
-            {{book.tags}}<br>
-            {{book.localeDate(book.addedDate)}}<br>
-
+            <div class="column-flex-align-end flex-grow-shrink">
+                <div class="row-flex">
+                    <input type="button" value="{{tag}}" class="tag-button small-margin-left" ng-repeat='tag in book.tags' ng-click="searchByTag(tag)"/>
+                </div>
+            </div>
         </div>
     </div>
 </div>

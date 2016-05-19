@@ -1,9 +1,9 @@
 <div  ng-controller="LibraryCtrl" class="margin-top">
     <form class="form-filter">
         <span class="column-flex">
-            <input type="text" class="search input1 margin-form margin-left" placeholder="search" ng-model="filter.search" ng-change="getBooks()">
+            <input type="text" class="search input1 margin-form margin-left" placeholder="search" ng-model="filter.search" ng-change="getBooksWithFilter()">
             <span class="margin-top row-flex">
-                <input id="valid" type="checkbox" ng-change="getBooks()" ng-model="filter.availableOnly">
+                <input id="valid" type="checkbox" ng-change="getBooksWithFilter()" ng-model="filter.availableOnly">
                 <label for="valid" class="margin-left"></label>
                 <label for="valid" class="tag-label small-margin-left">Show only available  </label>
             </span>
@@ -12,17 +12,17 @@
             <legend>Level of training</legend>
             <span class="column-flex">
                 <span class="row-flex">
-                    <input id="beginner" type="checkbox" ng-change="getBooks()" ng-model="filter.level.beginner">
+                    <input id="beginner" type="checkbox" ng-change="getBooksWithFilter()" ng-model="filter.level.beginner">
                     <label for="beginner" class="small-margin-left"></label>
                     <label for="beginner" class="tag-label small-margin-left">Beginner</label>
                 </span>
                 <span class="row-flex">
-                    <input id="normal" type="checkbox" ng-change="getBooks()" ng-model="filter.level.normal">
+                    <input id="normal" type="checkbox" ng-change="getBooksWithFilter()" ng-model="filter.level.normal">
                     <label for="normal" class="small-margin-left"></label>
                     <label for="normal" class="tagLabel small-margin-left">Normal</label>
                 </span>
                 <span class="row-flex">
-                    <input id="advanced" type="checkbox" ng-change="getBooks()" ng-model="filter.level.advanced">
+                    <input id="advanced" type="checkbox" ng-change="getBooksWithFilter()" ng-model="filter.level.advanced">
                     <label for="advanced" class="small-margin-left"></label>
                     <label for="advanced" class="tag-label small-margin-left">Advanced</label>
                 </span>
@@ -34,8 +34,9 @@
         </fieldset>
         <!--<input class="button marginForm filterButton" type="button" value="Filter" ng-click="sortBooks()">-->
     </form>
+    <p ng-show="exception" class="error">Error: Books not found!</p>
     <div class="book-flex-container">
-        <div class="book" ng-repeat="book in books" ng-class="{true:'enabled', false:'disabled'}[book.available]">
+        <div class="book disabled" ng-repeat="book in allBooks"  ng-class="{'enabled':book.available, 'hide-block':book.hidden, 'show-block':!book.hidden}" >
             <div ng-click="redirectToPathOfBook(book.id)">
                 <div ng-show="book.isNew()" class="ribbon-new">
                     <img src="source/images/ribbon_new.png" alt="new icon">
@@ -48,9 +49,9 @@
                 <a id="bookHref" href="#/book/{{book.id}}"><b>"{{book.titleRussian}}"</b></a><br>
                 {{book.getEdition()}}<br>
                 <i>{{book.author}}</i> <br>
-                <img src="{{book.getLanguageIcon()}}" alt="language icon" class="lang-img">
+                <img src="" alt="language icon" class="lang-img img-language-{{book.language.toLowerCase()}}">
                 <input ng-show="book.available" type="button" class="get-to-read" value="Get Book">
-                <label class="occupied" ng-show="!book.available">Book occupied to <time>{{book.localeDate(book.returnDate)}}</time></label>
+                <label class="occupied" ng-hide="book.available">Book occupied to <time>{{book.localeDate(book.returnDate)}}</time></label>
             </div>
         </div>
     </div>

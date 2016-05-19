@@ -3,5 +3,5 @@
     <option value="{{tag}}" ng-repeat="tag in allAvailableBookTags">{{tag}}</option>
 </datalist>
 <div>
-    <input type="button" value="{{tag}} &#x2715;" class="tag-button" ng-repeat='tag in tags' ng-click="removeTag(tag)"/>
+    <input type="button" value="{{tag}} &#x2715;" class="tag-button small-margin-left" ng-repeat='tag in tags' ng-click="removeTag(tag)"/>
 </div>

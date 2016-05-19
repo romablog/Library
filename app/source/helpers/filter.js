@@ -12,9 +12,9 @@
     };
 
     Filter.prototype.check = function (book) {
-        if (this.search && !book.isBookContainSubstring(this.search)){ return false }
         if (this.availableOnly && !book.available){ return false }
         if (!book.isBookOfLevels(this.level)) { return false }
+        if (this.search && !book.isBookContainSubstring(this.search)){ return false }
         return !this.tags.some(function (tag) { return !(~book.tags.indexOf(tag)) });
     };
 })();
